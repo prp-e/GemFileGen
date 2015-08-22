@@ -23,9 +23,10 @@ gemfile = File.new('Gemfile', 'w+')
 
 gemfile.write("source 'https://rubygems.org'\n")
 
-while m < File.open('Gemfile', 'r') {|n| n.count}
- gemfile.write("#{gems[m]}\n")
+while m < File.open('Gemfile', 'w+') {|n| n.count}
+ File.write('Gemfile', "#{gems[m]}\n")
  puts "Line number #{m} has been written"
+ m += 1
 end
   
  
